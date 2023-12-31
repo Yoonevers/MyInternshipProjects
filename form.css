@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: url(https://i.pinimg.com/originals/39/b5/16/39b5165c510284ea96c6c61ff832e9f9.jpg);
+    background-size: cover;
+}
+.c {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(0,0,0,0.5);
+    padding: 28px;
+    margin: 0 28px;
+    border-radius: 10px;
+}
+.title {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 6px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 2px black;
+    border-bottom: solid 1px whitesmoke;
+}
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.box:nth-child(2n) {
+    justify-content: end;
+}
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+.box label {
+    width: 95%;
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px 0;
+}
+.box input {
+    height: 40px;
+    width: 95%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid grey;
+    padding: 0 10px;
+}
+.Gender {
+    color: whitesmoke;
+    font-size: 25px;
+    font-weight: 400;
+    border-bottom: 1px solid whitesmoke;
+}
+.Category {
+    margin: 15px 0;
+    color: whitesmoke;
+}
+.Category label {
+    padding: 0 20px 0 5px;
+}
+button {
+    background-color: green;
+    font-size: 18px;
+    color: whitesmoke;
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px;
+    float: right;
+}
+.Category label,
+.Category input,
+.submit-btn input {
+    cursor: pointer;
+}
+.submit-btn {
+    margin-top: 40px;
+}
+.submit-btn input {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    color: rgb(200,200,200);
+    background:  rgba(189, 110, 42,0.7);
+}
+.submit input:hover {
+    background: rgb(230,125,30);
+    color: whitesmoke;
+}
+
+@media(max-width: 600px) {
+    .c {
+        min-width: 280px;
+    }
+    .box {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+    .box:nth-child(2n){
+        justify-content: space-between;
+    }
+    .Category {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .info {
+        max-height: 380px;
+        overflow: auto;
+    }
+    .info::-webkit-scrollbar {
+        width: 0;
+    }
+}
