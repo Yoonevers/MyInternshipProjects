@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css1.css">
+    <title>Customized Sweatshirts</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i>Customized Sweatshirts</i></h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="customization-tab">
+            <h2 id="home">Customize Your Sweatshirt</h2>
+            <form>
+                <label for="color">Color:</label>
+                <select id="color">
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                </select>
+
+                <label for="size">Size:</label>
+                <select id="size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+
+                <label for="text">Text:</label>
+                <input type="text" id="text" >
+
+                <label for="count">Count:</label>
+                <input type="number" id="count" value="1" min="1">
+
+                <label for="material">Material:</label>
+                <select id="material">
+                    <option value="cotton">Cotton</option>
+                    <option value="polyester">Polyester</option>
+                </select>
+
+                <label for="style">Style:</label>
+                <select id="style">
+                    <option value="hoodie">Hoodie</option>
+                    <option value="crewneck">Crewneck</option>
+                </select>
+
+                <button id="add-to-cart" style="position: relative;">Add to Cart</button>
+            </form>
+        </section>
+
+        <section class="sweatshirt-image" id="products">
+            <img src="https://i.etsystatic.com/41146063/r/il/bb2551/5656670158/il_794xN.5656670158_4ulx.jpg" 
+                 alt="Customized Sweatshirt" style="height: 500px;">
+        </section>
+    </main>
+    <section style="text-align: center;" class="special-offers">
+        <h2 ><i>Special Offers</i></h2>
+        <p>Check out our latest deals on customized sweatshirts!<br>
+           <br>
+           Now only at<b>$10</b><br>
+           <br>
+           First 100 customers can win a discount of 5%.
+        </p>
+    </section>
+    <footer>
+        <div style="text-align: center;font-family: 'Courier New', Courier, monospace;"><h4 id="contact" ><i>Contact Us</i></h4>
+        <p>+91 6382874830<br>
+           +91 8384833286<br></p>
+        </div>
+    </footer>
+</body>
+</html>
