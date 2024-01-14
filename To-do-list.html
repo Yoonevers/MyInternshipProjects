@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    background-image: url("C:\Users\HARSHITHA\Pictures\Screenshots\background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50; /* Dark Grayish Blue */
+}
+
+#task-list {
+    margin-top: 20px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ecf0f1; /* Light Gray */
+}
+
+.task input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.add-task {
+    margin-top: 20px;
+    display: flex;
+}
+
+.add-task input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #3498db; /* Dodger Blue */
+    border-radius: 4px;
+}
+
+.add-task button {
+    padding: 10px;
+    background-color: #2ecc71; /* Emerald Green */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-task button:hover {
+    background-color: #27ae60; /* Darker Shade of Green on Hover */
+}
+
+.task span {
+    cursor: pointer;
+    color: #27ae60; /* Alizarin Red */
+}
+
+.task span:hover {
+    text-decoration: underline;
+}
+
+.task button {
+    padding: 10px;
+    background-color: #e74c3c; /* Alizarin Red */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.task button:hover {
+    background-color: #c0392b; /* Darker Shade of Red on Hover */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <div id="task-list">
+        </div>
+        <div class="add-task">
+            <input type="text" id="new-task" placeholder="Add a new task">
+            <button onclick="addTask()">Add</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    loadTasks();
+});
+
+function addTask() {
+    const newTaskInput = document.getElementById("new-task");
+    const taskText = newTaskInput.value.trim();
+
+    if (taskText === "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    const tasks = getTasks();
+    tasks.push({ text: taskText, completed: false });
+    saveTasks(tasks);
+    newTaskInput.value = "";
+    renderTasks();
+}
+
+function editTask(index) {
+    const tasks = getTasks();
+    const updatedText = prompt("Edit task:", tasks[index].text);
+
+    if (updatedText !== null) {
+        tasks[index].text = updatedText.trim();
+        saveTasks(tasks);
+        renderTasks();
+    }
+}
+
+function deleteTask(index) {
+    const confirmDelete = confirm("Are you sure you want to delete this task?");
+
+    if (confirmDelete) {
+        const tasks = getTasks();
+        tasks.splice(index, 1);
+        saveTasks(tasks);
+        renderTasks();
+    }
+}
+
+function toggleTask(index) {
+    const tasks = getTasks();
+    tasks[index].completed = !tasks[index].completed;
+    saveTasks(tasks);
+    renderTasks();
+}
+
+function renderTasks() {
+    const tasksContainer = document.getElementById("task-list");
+    tasksContainer.innerHTML = "";
+
+    const tasks = getTasks();
+
+    tasks.forEach((task, index) => {
+        const taskElement = document.createElement("div");
+        taskElement.classList.add("task");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = task.completed;
+        checkbox.addEventListener("change", () => toggleTask(index));
+
+        const taskText = document.createElement("span");
+        taskText.innerText = task.text;
+        taskText.addEventListener("click", () => editTask(index));
+
+        const deleteButton = document.createElement("button");
+        deleteButton.innerText = "Delete";
+        deleteButton.addEventListener("click", () => deleteTask(index));
+
+        taskElement.appendChild(checkbox);
+        taskElement.appendChild(taskText);
+        taskElement.appendChild(deleteButton);
+
+        tasksContainer.appendChild(taskElement);
+    });
+}
+
+function saveTasks(tasks) {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function getTasks() {
+    const storedTasks = localStorage.getItem("tasks");
+    return storedTasks ? JSON.parse(storedTasks) : [];
+}
+
+function loadTasks() {
+    renderTasks();
+}
+
+    </script>
+</body>
+</html>
