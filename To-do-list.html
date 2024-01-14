@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <style>
-       body {
+       header {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -13,8 +13,13 @@
     background-image: url("https://raw.githubusercontent.com/Yoonevers/MyInternshipProjects/main/background.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
-
+footer {
+    font-family: monospace;
+    color: rgb(3, 59, 105);
+    text-align: center;
+}
 .container {
     max-width: 600px;
     margin: 50px auto;
@@ -26,7 +31,7 @@
 
 h1 {
     text-align: center;
-    color: #2c3e50; /* Dark Grayish Blue */
+    color: #2c3e50;
 }
 
 #task-list {
@@ -38,7 +43,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #ecf0f1; /* Light Gray */
+    border-bottom: 1px solid #ecf0f1;
 }
 
 .task input[type="checkbox"] {
@@ -53,13 +58,13 @@ h1 {
 .add-task input {
     flex: 1;
     padding: 10px;
-    border: 1px solid #3498db; /* Dodger Blue */
+    border: 1px solid #3498db;
     border-radius: 4px;
 }
 
 .add-task button {
     padding: 10px;
-    background-color: #2ecc71; /* Emerald Green */
+    background-color: #2ecc71;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -67,12 +72,12 @@ h1 {
 }
 
 .add-task button:hover {
-    background-color: #27ae60; /* Darker Shade of Green on Hover */
+    background-color: #27ae60;
 }
 
 .task span {
     cursor: pointer;
-    color: #27ae60; /* Alizarin Red */
+    color: #27ae60;
 }
 
 .task span:hover {
@@ -81,7 +86,7 @@ h1 {
 
 .task button {
     padding: 10px;
-    background-color: #e74c3c; /* Alizarin Red */
+    background-color: #e74c3c; 
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -89,12 +94,13 @@ h1 {
 }
 
 .task button:hover {
-    background-color: #c0392b; /* Darker Shade of Red on Hover */
+    background-color: #c0392b; 
 }
 
     </style>
 </head>
 <body>
+    <header>
     <div class="container">
         <h1>To-Do List</h1>
         <div id="task-list">
@@ -104,7 +110,7 @@ h1 {
             <button onclick="addTask()">Add</button>
         </div>
     </div>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
     loadTasks();
@@ -200,5 +206,30 @@ function loadTasks() {
 }
 
     </script>
+    </header>
+    <footer>
+        <h2>Welcome to Your To-Do List!</h2>
+        <p>This simple and user-friendly to-do list helps you organize your tasks efficiently. Here's how you can use it:<br>
+
+        <h3>Adding a New Task</h3>
+        Enter your task in the input field and click "Add Task" to add it to your to-do list.<br>
+
+        <h3>Marking Tasks as Completed</h3>
+        Check the checkbox next to a task to mark it as completed. Uncheck it to mark the task as incomplete.<br>
+
+        <h3>Editing Tasks</h3>
+        Click the "Edit" button to modify the text of an existing task. Enter the new text and confirm the changes.<br>
+
+        <h3>Deleting Tasks</h3>
+        Click the "Delete" button to remove a task from your to-do list.<br>
+
+        <h3>Local Storage</h3>
+        Your tasks are saved locally, so they'll remain even if you close your browser. Feel free to use this tool to keep track of your daily activities!<br>
+
+        <h3>Get Started</h3>
+        Start organizing your tasks now! Add, edit, and delete tasks to keep your to-do list up to date.</p>
+
+    </footer>
+
 </body>
 </html>
